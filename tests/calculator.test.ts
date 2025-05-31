@@ -9,4 +9,9 @@ describe("String Calculator", () => {
   it("Return 0 if string has empty spaces", () => {
     expect(add(" ")).toBe(0);
   });
+
+  it("Return sum of single number", () => {
+    expect(add("5")).toBe(5);
+  });
+  
 });
