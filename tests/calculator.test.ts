@@ -25,4 +25,12 @@ describe("String Calculator", () => {
   it("supports custom delimiter", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
+
+  it("throws error on negative number", () => {
+    expect(() => add("1,-2")).toThrow("negative numbers not allowed: -2");
+  });
+
+  it("throws error listing all negative numbers", () => {
+    expect(() => add("-1,-2,3")).toThrow("negative numbers not allowed: -1,-2");
+  });
 });
