@@ -13,5 +13,12 @@ describe("String Calculator", () => {
   it("Return sum of single number", () => {
     expect(add("5")).toBe(5);
   });
-  
+
+  it("Return sum of comma-separated values", () => {
+    expect(add("5,4,6")).toBe(15);
+  });
+
+  it("supports newline as delimiter", () => {
+    expect(add("1\n2,3")).toBe(6);
+  });
 });
