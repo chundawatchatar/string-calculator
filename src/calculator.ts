@@ -1,9 +1,20 @@
 const add = (input: string): number => {
   if (!input || !input.trim()) return 0;
 
-  const delimiters = [",", "\n"];
+  let delimiters = [",", "\n"];
+  let numbersPart = input;
+
+  if (input.startsWith('//')) {
+    const match = input.match(/^\/\/(.+)\n(.*)/);
+    if (match) {
+      const customDelimiter = match[1];
+      delimiters = [customDelimiter];
+      numbersPart = match[2];
+    }
+  }
+
   const regex = new RegExp(`[${delimiters.join("")}]`);
-  const numbers = input
+  const numbers = numbersPart
     .split(regex)
     .filter((n) => n.length > 0)
     .map((n) => parseInt(n, 10));
